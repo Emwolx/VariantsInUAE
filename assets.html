@@ -1,0 +1,38 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const data = [
+        { id: "rs2234922", ref: "A", alt: "T", freqEmirati: "55.74%", freqGlobal: "33.62%" },
+        { id: "rs9290927", ref: "A", alt: "T", freqEmirati: "57.42%", freqGlobal: "6.1%" },
+        // Add all variant data here
+    ];
+
+    const table = document.getElementById('variantTable');
+    data.forEach(variant => {
+        const row = `<tr>
+            <td>${variant.id}</td>
+            <td>${variant.ref}</td>
+            <td>${variant.alt}</td>
+            <td>${variant.freqEmirati}</td>
+            <td>${variant.freqGlobal}</td>
+        </tr>`;
+        table.innerHTML += row;
+    });
+
+    const ctx = document.getElementById('alleleChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: data.map(d => d.id),
+            datasets: [
+                { label: 'Emirati Frequency', data: data.map(d => parseFloat(d.freqEmirati)), backgroundColor: '#72383d' },
+                { label: 'Global Frequency', data: data.map(d => parseFloat(d.freqGlobal)), backgroundColor: '#9cabb4' }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: 'top' },
+                title: { display: true, text: 'Allele Frequencies: Emirati vs Global' }
+            }
+        }
+    });
+});

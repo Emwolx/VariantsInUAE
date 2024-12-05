@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Variants</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Genetic Variants in the Emirati Population</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+    <main>
+        <section class="charts">
+            <h2>Visualizations</h2>
+            <canvas id="alleleChart"></canvas>
+        </section>
+        <section class="database">
+            <h2>Variant Database</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Variant ID</th>
+                        <th>Reference Allele</th>
+                        <th>Alternate Allele</th>
+                        <th>Frequency in Emirati</th>
+                        <th>Global Frequency</th>
+                    </tr>
+                </thead>
+                <tbody id="variantTable">
+                    <!-- Data will be dynamically added here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Variants in UAE. All rights reserved.</p>
+    </footer>
+    <script src="assets/js/variants.js"></script>
+</body>
+</html>
